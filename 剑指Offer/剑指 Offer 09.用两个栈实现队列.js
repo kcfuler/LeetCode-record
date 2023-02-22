@@ -8,7 +8,8 @@
 // @lc code=start
 
 var CQueue = function() {
-
+  this.outStk = [];
+  this.inStk = [];
 };
 
 /** 
@@ -16,14 +17,23 @@ var CQueue = function() {
  * @return {void}
  */
 CQueue.prototype.appendTail = function(value) {
-
+  this.inStk.push(value);
 };
 
 /**
  * @return {number}
  */
 CQueue.prototype.deleteHead = function() {
+  if( !this.outStk.length ){
+    if( !this.inStk.length ){
+      return -1;
+    }
+    while( this.inStk.length ){
+      this.outStk.push(this.inStk.pop());
+    }
+  }
 
+  return this.outStk.pop();
 };
 
 /**
