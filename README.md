@@ -1,2 +1,2 @@
 # LeetCode-record
-to record my code in leetcode 
+to record my code in leetCode 
