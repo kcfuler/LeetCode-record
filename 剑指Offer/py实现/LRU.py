@@ -44,13 +44,13 @@ class LRUCache:
         self.__add_to_head(node)
 
     def __remove_node(self, node: DoubleLinkListNode):
-        node.prev.next = node.next
-        node.next.prev = node.prev
+        node.prev.nex = node.next
+        node.next.pre = node.prev
 
     def __add_to_head(self, node: DoubleLinkListNode):
         node.next = self.head.next
         node.prev = self.head.prev
-        self.head.next.prev = node
+        self.head.next.pre = node
         self.head.next = node
 
     def __remove_tail(self):
